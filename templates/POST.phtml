@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    
+    <!--
+            De base, ce code fonctionne avec JavaScript, le code JQuery étant en commentaire.
+            J'ai pris le soin de marquer quels bouts de code correspondent à quoi, pour passer plus facilement de l'un à l'autre.
+            Le JQuery ne fait que clear la boîte de commentaires.
+    -->
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Lamborghini</title>
+        <meta name="description" content="Creer votre lamborghini !">
+        <link rel="stylesheet" href="Formu.css">
+        <script>
+
+        function clear2(id){
+            document.getElementById(id).innerHTML = '';
+        }
+        
+        function fillText(id){
+            area = document.getElementById(id);
+            if(area.innerHTML=='') area.innerHTML = 'click here !';
+        }
+        
+        function verif(formu){
+            if (formu.name.value==""){
+                alert ("Vous avez oublié de renseigner le nom !");
+            }
+            else if (formu.color.value==""){
+                alert ("Vous avez oublié de renseigner la couleur !");
+            }
+            else if (formu.price.value==""){
+                alert ("Vous avez oublié de renseigner le prix !");
+            }
+            else if (formu.weight.value==""){
+                alert ("Vous avez oublié de renseigner le poids !");
+            }
+            else if (formu.length.value==""){
+                alert ("Vous avez oublié de renseigner la longueur !");
+            }
+            else if (formu.max_speed.value==""){
+                alert ("Vous avez oublié de renseigner la vitesse maximale !");
+            }
+            else{
+                alert ("Formulaire rempli avec succès !");
+                formu.submit();
+            } 
+        }    
+            
+        </script>
+    </head>
+    
+    <body>
+            
+            <!-- Formulaire -->
+            <form method="post" action='/Update'>
+                
+                <table>
+                    <b>Enregistrement :</b>
+                    
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                
+                <tr>
+                    <td>Color</td>
+                    <td><input type="text" name="color"></td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td><input type="int" name="price"></td>
+                </tr>
+                <tr>
+                    <td>Weight</td>
+                    <td><input type="int" name="weight"></td>
+                </tr>
+                <tr>
+                    <td>Length</td>
+                    <td><input type="int" name="length"></td>
+                </tr>
+                
+                <tr>
+                    <td>Max_speed</td>
+                    <td>
+                        <select name="max_speed">
+                            <option value="250">250</option>
+                            <option value="260">260</option>
+                            <option value="270">270</option>
+                            <option value="280">280</option>
+                            <option value="290">290</option>
+                            <option value="300">300</option>
+                            <option value="310">310</option>
+                            <option value="320">320</option>
+                            <option value="330">330</option>
+                            <option value="340">340</option>
+                            <option value="350">350</option>
+                            <option value="360">360</option>
+                            <option value="370">370</option>
+                            <option value="380">380</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>Com's</td>
+                    
+
+                    <td><textarea id="textarea" onfocus="clear2('textarea');" onfocusout="fillText('textarea')">click here !</textarea></td>
+                    
+                </tr>
+                
+                <tr>
+                    <!-- JS -->
+                    <td colspan=1><input type="button" value="Save" onclick="verif(this.form)" ></td>
+                </tr>    
+                </table>
+                
+            </form>
+
+                 
+<IMG class="POST" src="Lambo.png" alt="...">
+               
+                
+    </body>
+</html>

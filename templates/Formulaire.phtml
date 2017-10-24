@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="Lamborghini" content="width=device=width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+        <title>Lamborghini</title>
+    </head>
+    <body>
+        <div class="container" style="background:azure;">
+            <div class="row">
+                <form method="post" action='/Update' style="margin:50px;">
+                    <b>Enregistrement : </b>
+                    <div class="form-group">
+                        <label for="name">Name : </label>
+                        <input type="text" name="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="color">Color : </label>
+                        <input type="text" name="color" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price : </label>
+                        <input type="int" name="price" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Weight : </label>
+                        <input type="int" name="weight" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="Length">Length :    </label>
+                        <input type="radio" name="length" value="4600">  4m60   
+                        <input type="radio" name="length" value="4700">  4m70   
+                        <input type="radio" name="length" value="4800">  4m80   
+                    </div>
+                    <div class="form-group">
+                        <label for="max_speed">Max_speed : </label>
+                        <select name="max_speed">
+                            <option value="250">250</option>
+                            <option value="260">260</option>
+                            <option value="270">270</option>
+                            <option value="280">280</option>
+                            <option value="290">290</option>
+                            <option value="300">300</option>
+                            <option value="310">310</option>
+                            <option value="320">320</option>
+                            <option value="330">330</option>
+                            <option value="340">340</option>
+                            <option value="350">350</option>
+                            <option value="360">360</option>
+                            <option value="370">370</option>
+                            <option value="380">380</option>
+                        </select>
+
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </div>  
+    </body>
+</html>
