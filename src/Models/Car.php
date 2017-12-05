@@ -5,13 +5,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Car extends Model
 {
+    //protected $primaryKey ='id';    
     private $name;
     private $color;
     private $price;
     private $length;
     private $weight;
     private $max_peed;
-
+    private $horsepower;
+    private $option;
+    private $img;
 
         public function setName($name) {
             $this->name = $name;
@@ -58,6 +61,14 @@ class Car extends Model
             return $this->weight;
         }
 
+ 		public function setHorsepower($horsepower) {
+            $this->horsepower = $horsepower;
+            return $this;
+        }       
+       
+        public function getHorsepower() {
+            return $this->horsepower;
+        }
         public function setMax_speed($max_speed) {
             $this->max_speed = $max_speed;
             return $this;
@@ -66,6 +77,21 @@ class Car extends Model
         public function getMax_speed() {
             return $this->max_speed;
         }
-
+        public function setOption($option) {
+            $this->option = $option;
+            return $this;
+        }       
+       
+        public function getOption() {
+            return $this->option;
+        }
+   		public function setImg($img) {
+            $this->max_speed = $img;
+            return $this;
+        }       
+       
+        public function getImg() {
+            return $this->img;
+        }
 
 }

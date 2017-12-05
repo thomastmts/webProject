@@ -1,11 +1,38 @@
 <?php
 // Routes
 
-$app->get('/', function ($request, $response, $args) {
-return $this->renderer->render($response, 'view.phtml', $args);
+$app->get("/car/acc", function ($request, $response, $args) {
+    $this->db;
+    $Cars = Car::all();
+    return $this->renderer->render($response, 'accueil.phtml',["Cars"=>$Cars]);
 });
 
-$app->get('/Cars', function ($request, $response, $args) {
+$app->get("/car/list", function ($request, $response, $args) {
+   /*    $Car = new Car;
+    $Car->id = $_POST['id'];
+    $Car->name = $_POST['name'];
+    $Car->color = $_POST['color'];
+    $Car->price = $_POST['price'];
+    $Car->weight = $_POST['weight'];
+    $Car->length = $_POST['length'];
+    $Car->horsepower = $_POST['horsepower'];
+    $Car->max_speed = $_POST['max_speed'];
+    $Car->save(); */
+    $this->db;
+    $Cars = Car::all();
+    return $this->renderer->render($response, 'showall.phtml',["Cars"=>$Cars]);
+});
+
+$app->get("/car/details/[{id}]", function ($request, $response, $args) {
+    $id = $args['id'];
+    $this->db;
+    $Car = Car::find($id); 
+    return $this->renderer->render($response, 'car_details.phtml',["Car"=>$Car]);
+});
+
+
+//Add route
+$app->get('/car/add', function ($request, $response, $args) {
     $this->db;
     $capsule = new \Illuminate\Database\Capsule\Manager;
     //$capsule::schema()->dropIfExists('cars');
@@ -17,15 +44,17 @@ $app->get('/Cars', function ($request, $response, $args) {
             $table->integer('price');
             $table->integer('weight');
             $table->integer('length');
+            $table->integer('horsepower');
             $table->integer('max_speed');
+            $table->integer('option');
+            $table->integer('img');
             $table->timestamps();
         }); 
     }
     return $this->renderer->render($response, 'Formulaire.phtml', $args);
 });
 
-$app->post('/Update', function ($request, $response, $args) {
-
+$app->post('/car/addpost', function ($request, $response, $args) {
         $this->db;
         $Car = new Car;
         $Car->name = $_POST['name'];
@@ -33,24 +62,50 @@ $app->post('/Update', function ($request, $response, $args) {
         $Car->price = $_POST['price'];
         $Car->weight = $_POST['weight'];
         $Car->length = $_POST['length'];
-        $Car->max_speed = $_POST['max_speed'];
-        //echo $_POST['max_speed'];
+        $Car->horsepower = $_POST['horsepower'];
+        $Car->max_speed = $_POST['max_speed'];				    
+		foreach($_POST['option'] as $Car) echo $_POST['option'];
+        $Car->img = $_POST['img'];
         $Car->save(); 
-        //echo "Valide";
+        //echo $_POST['max_speed'];
         //$Car	->name= Input::get('name');echo "Test";
-
-        return $this->renderer->render($response, 'view.phtml', $args);
-        //return Redirect:: back();
+    return $response->withRedirect('/car/list');
 });
 
-$app->get('/Delete', function ($request, $response, $args) {
 
+//Delete 
+$app->post("/car/delete/[{id}]", function ($request, $response, $args) {
     $this->db;
-    $Car = Models\Car::find(1);
-echo "supprimme1";
-    $Car->delete();
-
-    return $this->renderer->render($response, 'view.phtml', $args);
+    $id = $args['id'];
+    $Car = Car::find($id); 
+    $Car->delete(); 
+    $Cars = Car::all();
+    return $this->renderer->render($response, 'showall.phtml', ["Cars"=>$Cars]);
 });
 
+//Edit
+$app->get("/car/edit/[{id}]", function  ($request, $response, $args) use($app) {
+    $this->db;
+    $id = $args['id'];
+    $Car = Car::find($id);
+    return $this->renderer->render($response, 'editview.phtml', ["Car"=>$Car]);
+});
+
+$app->post("/car/editpost/[{id}]", function ($request, $response, $args) {
+	$this->db;
+	$id = $args['id'];
+    $Car = Car::find($id);
+    $Car->name = $_POST['name'];
+    $Car->color = $_POST['color'];
+    $Car->price = $_POST['price'];
+    $Car->weight = $_POST['weight'];
+    $Car->length = $_POST['length'];
+    $Car->horsepower = $_POST['horsepower'];
+    $Car->max_speed = $_POST['max_speed'];
+    $Car->option = $_POST['option'];
+    $Car->img = $_POST['img'];
+    $Car->save();
+   	return $response->withRedirect('/car/list');
+   	//return redirect('car/list');
+});
 

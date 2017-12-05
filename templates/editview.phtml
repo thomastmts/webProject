@@ -2,13 +2,13 @@
 <html>
     <head>
         <meta name="Lamborghini" content="width=device=width, initial-scale=1">
-       		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-        <title>Lamborghini</title>
+
     </head>
     <body>
-       <nav class="navbar navbar-inverse">
+      <nav class="navbar navbar-inverse">
 		  <div class="container-fluid">
 				<div class="navbar-header">
 					<a class="navbar-brand" href="/car/acc">Lamborghini</a>
@@ -19,26 +19,26 @@
 				</ul>
 		  </div>
 		</nav> 
-		
-        <div style="background:azure; margin-top:-20px"">
+        <div class="figure" style="background:azure; margin-top:-20px">
             <div class="row">
-                <form method="post" action='/car/addpost' style="margin:50px;">
+                <!-- <form method="post" action='/Carsedit' style="margin:50px;"> -->
+                 <form method="post" action='/car/editpost/<?php echo $Car->id ?>' style="margin:50px;">
                     <b>Enregistrement : </b>
                     <div class="form-group">
                         <label for="name">Name : </label>
-                        <input type="text" name="name" class="form-control">
+                        <input type="text" name="name" class="form-control" value="<?php echo $Car->name ?>"  >
                     </div>
                     <div class="form-group">
                         <label for="color">Color : </label>
-                        <input type="text" name="color" class="form-control">
+                        <input type="text" name="color" class="form-control" value="<?php echo $Car->color ?>"  >
                     </div>
                     <div class="form-group">
                         <label for="price">Price : </label>
-                        <input type="int" name="price" class="form-control">
+                        <input type="int" name="price" class="form-control" value="<?php echo "$Car->price" ?>" >
                     </div>
                     <div class="form-group">
                         <label for="weight">Weight : </label>
-                        <input type="int" name="weight" class="form-control">
+                        <input type="int" name="weight" class="form-control" value="<?php echo $Car->weight?>">
                     </div>
                     <div class="form-group">
                         <label for="Length">Length :    </label>
@@ -80,12 +80,13 @@
                     <div class="form-group">
                         <label for="option">Option :    </label>
                         <input type="checkbox" name="option" value="GPS">  GPS   
-                        <input type="checkbox" name="option" value="2">  Sunroof  
-                        <input type="checkbox" name="option" value="3">  Fridge
-                        <input type="checkbox" name="option" value="4">  Sport line
-                        <input type="checkbox" name="option" value="5">  LouisVuitton's seats 
-                        <input type="checkbox" name="option" value="6">  Headed seat 
+                        <input type="checkbox" name="option" value="Sunroof">  Sunroof  
+                        <input type="checkbox" name="option" value="Fridge">  Fridge
+                        <input type="checkbox" name="option" value="Sportline">  Sport line
+                        <input type="checkbox" name="option" value="LV">  LouisVuitton's seats 
+                        <input type="checkbox" name="option" value="Headed seat">  Headed seat 
                     </div>
+                    <div class="form-group">
 					<label for="img">Picture :  </label>
 					<div class="row">
 					  <input type="radio" name="img" value="small" />
@@ -102,7 +103,6 @@
 					<div class="col-md-10 col-md-offset-1">
                     <button href="#" type="submit" class="btn btn-success btn-block" style="margin:20px;"><span class="glyphicon glyphicon-ok"></span>Submit</button>
                     </div>
-                </form>
             </div>
         </div>  
     </body>

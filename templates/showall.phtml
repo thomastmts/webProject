@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    </head>
+    <body>
+       <nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/car/acc">Lamborghini</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="/car/list"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+			  		<li><a href="/car/add"><span class="glyphicon glyphicon-plus-sign"></span>  New car</a></li>
+				  	<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-pencil"></span>  Edit<span class="caret"></span></a>
+						
+						<ul class="dropdown-menu">
+						<?php foreach($Cars as $Car) {?>
+										<form method="get" action='/car/edit/<?=$Car->id?>'>
+											<button class="container-fluid" type="submit">Car number <?=$Car->id ?></button>
+						   				</form>
+						<?php }?>
+						</ul>
+				  </li>
+				</ul>
+		  </div>
+		</nav> 
+    	<div class="row" style="margin-top:-20px" >
+		    <?php foreach($Cars as $Car) {?>
+		           	    <div id="block1" class="col-md-4" style="background:grey; border:1px solid black;">
+		           	    	<td> Car number <?=$Car->id ?></td>
+				            <td> Name : <?=$Car->name ?></td>
+				            <td> Color : <?=$Car->color ?></td>
+				            <td> Price : <?=$Car->price ?></td>
+				            <td> Weight : <?=$Car->weight ?></td>
+				            <td> Length : <?=$Car->length ?></td>
+				            <td> Horsepower : <?=$Car->horsepower ?></td>
+				            <td> Max speed : <?=$Car->max_speed ?></td>
+				            
+
+				            <td> Option : <?=$Car->option?>
+				            </td>
+				            <td> Img : <?=$Car->img ?></td>
+				            <img src="/L9.jpg" class="img-responsive"> 
+				            <!--<img class="img-responsive img-thumbnail" src="Lambo1.jpg" style='width:100%;'> -->
+				            <form method="get" action='/car/edit/<?=$Car->id?>'>
+		            			<button type="submit" class="btn btn-primary">Edit</button>
+		       				</form>
+		               		<form method="post" action='/car/delete/<?=$Car->id?>'>
+		                   		<button type="submit" class="btn btn-danger">Delete</button>
+		                	</form>
+		                </div>
+		     <?php }?>
+          </div>
+		 <form method="get" action='/car/add'>
+                <button href="#" type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span>Add a new car</button>
+         </form>
+    </body>
+</html>
