@@ -1,46 +1,108 @@
 <!DOCTYPE html>
 <html>
     <head>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"><
-		/script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+        <meta name="Lamborghini" content="width=device=width, initial-scale=1">
+                        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
     </head>
-    <body style="background:grey; ">
+    <body>
       <nav class="navbar navbar-inverse">
-		  <div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="/car/acc">Lamborghini</a>
-				</div>
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="/car/list"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
-			  		<li><a href="/car/add"><span class="glyphicon glyphicon-plus-sign"></span>  New car</a></li>
-				</ul>
-		  </div>
-		</nav> 
-		<div>
-		<center style="margin-top:10px" >
-		   <font size="7"  face="Times New Roman" >Welcome to</font> 
-		  <p style="font-size:26px; margin-bottom:30px;">Lamborghini's world</p>
-		</center>
-		
-		<MARQUEE scrollamount="15">
-			<div id="block1" class="col-md-2">
-			<img src="/L1.jpg" class="img-responsive"> 
-			</div>
-			<div id="block2" class="col-md-2">
-			<img src="/L2.jpg" class="img-responsive"> 
-			</div>
-			<div id="block3" class="col-md-2">
-			<img src="/L4.jpg" class="img-responsive">
-			</div>
-			<div id="block4" class="col-md-2"> 
-			<img src="/L6.jpg" class="img-responsive"> 
-			</div>
-			<div id="block5" class="col-md-2">
-			<img src="/L9.jpg" class="img-responsive"> 
-			</div>
-		</MARQUEE>
-		</div>
+                  <div class="container-fluid">
+                                <div class="navbar-header">
+                                        <a class="navbar-brand" href="/car/acc">Lamborghini</a>
+                                </div>
+                                <ul class="nav navbar-nav">
+                                        <li class="active"><a href="/car/list"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+                                        <li><a href="/car/add"><span class="glyphicon glyphicon-plus-sign"></span>  New car</a></li>
+                                </ul>
+                  </div>
+        </nav>
+        <div class="figure" style="background:azure; margin-top:-20px">
+            <div class="row">
+                <!-- <form method="post" action='/Carsedit' style="margin:50px;"> -->
+                 <form method="post" action='/car/editpost/<?php echo $Car->id ?>' style="margin:50px;">
+                    <b>Enregistrement : </b>
+                    <div class="form-group">
+                        <label for="name">Name : </label>
+                        <input type="text" name="name" class="form-control" value="<?php echo $Car->name ?>"  >
+                    </div>
+                    <div class="form-group">
+                        <label for="color">Color : </label>
+                        <input type="text" name="color" class="form-control" value="<?php echo $Car->color ?>"  >
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price : </label>
+                        <input type="int" name="price" class="form-control" value="<?php echo "$Car->price" ?>" >
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Weight : </label>
+                        <input type="int" name="weight" class="form-control" value="<?php echo $Car->weight?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="Length">Length :    </label>
+                        <input type="radio" name="length" value="4600">  4m60
+                        <input type="radio" name="length" value="4700">  4m70
+                        <input type="radio" name="length" value="4800">  4m80
+                    </div>
+                    <div class="form-group">
+                        <label for="horsepower">Horsepower : </label>
+                        <select name="horsepower">
+                            <option value="400">400</option>
+                            <option value="450">450</option>
+                            <option value="500">500</option>
+                            <option value="550">550</option>
+                            <option value="600">600</option>
+                            <option value="650">650</option>
+                            <option value="700">700</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="max_speed">Max_speed : </label>
+                        <select name="max_speed">
+                            <option value="250">250</option>
+                            <option value="260">260</option>
+                            <option value="270">270</option>
+                            <option value="280">280</option>
+                            <option value="290">290</option>
+                            <option value="300">300</option>
+                            <option value="310">310</option>
+                            <option value="320">320</option>
+                            <option value="330">330</option>
+                            <option value="340">340</option>
+                            <option value="350">350</option>
+                            <option value="360">360</option>
+                            <option value="370">370</option>
+                            <option value="380">380</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="option">Option :    </label>
+                        <input type="checkbox" name="option" value="0">  GPS
+                        <input type="checkbox" name="option" value="1">  Sunroof
+                        <input type="checkbox" name="option" value="2">  Fridge
+                        <input type="checkbox" name="option" value="3">  Sport line
+                        <input type="checkbox" name="option" value="4">  LouisVuitton's seats
+                        <input type="checkbox" name="option" value="5">  Headed seat
+										</div>
+                    <label for="img">Picture :  </label>
+                    <div class="row">
+                        <input type="radio" name="img" value="1" />
+                        <img src="/L1.jpg" width="120" height="63">
+                        <input type="radio" name="img" value="2" />
+                        <img src="/L2.jpg" width="120" height="63">
+                        <input type="radio" name="img" value="3" />
+                        <img src="/L4.jpg" width="120" height="63">
+                        <input type="radio" name="img" value="4" />
+                        <img src="/L6.jpg" width="120" height="63">
+                        <input type="radio" name="img" value="5" />
+                       <img src="/L9.jpg" width="120" height="63">
+                    </div>
+                    <div class="col-md-10 col-md-offset-1">
+                    	<button href="#" type="submit" class="btn btn-success btn-block" style="margin:20px;"><span class="glyphicon glyphicon-ok"></span>Submit</button>
+                    </div>
+            </div>
+        </div>
     </body>
 </html>

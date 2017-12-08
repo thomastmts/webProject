@@ -1,26 +1,12 @@
-# Slim Framework 3 Skeleton Application
+L’application a été réalisé par HUANG Thomas et KANAGESWARAN Ammallan dans le cadre d’un projet scolaire.
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 3 application. This application uses the latest Slim 3 with the PHP-View template renderer. It also uses the Monolog logger.
+Framework : Slim framework
+Languages : HTML, PHP (PHTML), 
+ORM : Eloquent
+Base de données : MySQL (Phpmyadmin)
 
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
+Le Repository Github du projet est celui de notre projet en local.
 
-## Install the Application
+Pour accéder au site, l’URL est le suivant : http://ec2-18-217-51-173.us-east-2.compute.amazonaws.com/webProject/public/index.php/car/acc
 
-Run this command from the directory in which you want to install your new Slim Framework application.
-
-    php composer.phar create-project slim/slim-skeleton [my-app-name]
-
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
-
-* Point your virtual host document root to your new application's `public/` directory.
-* Ensure `logs/` is web writeable.
-
-To run the application in development, you can also run this command. 
-
-	php composer.phar start
-
-Run this command to run the test suite
-
-	php composer.phar test
-
-That's it! Now go build something cool.
+Nous n’avons pas acheté le nom de domaine pour le site c’est pourquoi l’URL est assez long.

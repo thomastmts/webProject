@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="Lamborghini" content="width=device=width, initial-scale=1">
+                        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
+    </head>
+    <body style="background:black;">
+        <nav class="navbar navbar-inverse">
+                  <div class="container-fluid">
+                                <div class="navbar-header">
+                                        <a class="navbar-brand" href="/car/acc">Lamborghini</a>
+                                </div>
+                                <ul class="nav navbar-nav">
+                                        <li class="active"><a href="/car/list"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+                                        <li><a href="/car/add"><span class="glyphicon glyphicon-plus-sign"></span>  New car</a></li>
+                                </ul>
+                  </div>
+        </nav>
+         <form method="get" action='/car/list' style="float:right">
+                                                <button type="submit" class="btn btn-danger">Back</button>
+                                        </form>
+
+        <center>
+                <div class="row" style="margin-top:-20px">
+                        <?php switch ($Car->img) {
+                                                                case 1:
+                                                                        echo"<img src='/L1.jpg' class='img-responsive'>";
+                                                                        break;
+                                                                case 2:
+                                                                        echo"<img src='/L2.jpg' class='img-responsive'/>";
+                                                                        break;
+                                                                case 3:
+                                                                        echo"<img src='/L4.jpg' class='img-responsive'/>";
+                                                                        break;
+                                                                case 4:
+                                                                        echo"<img src='/L6.jpg' class='img-responsive'/>";
+                                                                        break;
+                                                                case 5:
+                                                                        echo"<img src='/L9.jpg' class='img-responsive'/>";
+                                                                        break;
+                         }?>
+                         <div class="col-md-8 col-md-offset-2" style="background:grey; border:1px solid black;">
+                                        <div style="border-bottom:1px solid black"> <B>Name : </B><?=$Car->name ?></div>
+                                        <div style="border-bottom:1px solid black"> <B>Color : </B><?=$Car->color ?></div>
+                                        <div style="border-bottom:1px solid black"> <B>Price : </B><?=$Car->price ?></div>
+                                        <div style="border-bottom:1px solid black"> <B>Weight : </B><?=$Car->weight ?></div>
+                                        <div style="border-bottom:1px solid black"> <B>Length : </B><?=$Car->length ?></div>
+                                        <div style="border-bottom:1px solid black"> <B>Horsepower : </B><?=$Car->horsepower ?></div>
+                                        <div style="border-bottom:1px solid black"> <B>Max speed : </B><?=$Car->max_speed ?></div>
+                                        <div style="border-bottom:1px solid black"> <B>Option :</B>
+                                        <?php if($Car->gps == 1)echo "GPS ";
+                                        if($Car->sunroof == 1)echo "Sunroof ";
+                                        if($Car->fridge == 1)echo "Fridge ";
+                                        if($Car->sport_line == 1)echo "Sport line ";
+                                        if($Car->lv == 1)echo "LouisVuitton's seats ";
+                                        if($Car->headed_seat == 1)echo "Headed seats ";?>
+                         </div>
+                                        <form method="get" action='/car/edit/<?=$Car->id?>'>
+                                                <button type="submit" class="btn btn-primary">Edit</button>
+                                        </form>
+
+
+                </div>
+            </div>
+        </center>
+    </body>
+</html>

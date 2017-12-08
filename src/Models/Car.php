@@ -13,7 +13,12 @@ class Car extends Model
     private $weight;
     private $max_peed;
     private $horsepower;
-    private $option;
+    private $gps;
+    private $sunroof;
+    private $fridge;
+    private $sport_line;
+    private $lv;
+    private $headed_seat;
     private $img;
 
         public function setName($name) {
@@ -77,14 +82,6 @@ class Car extends Model
         public function getMax_speed() {
             return $this->max_speed;
         }
-        public function setOption($option) {
-            $this->option = $option;
-            return $this;
-        }       
-       
-        public function getOption() {
-            return $this->option;
-        }
    		public function setImg($img) {
             $this->max_speed = $img;
             return $this;
@@ -92,6 +89,57 @@ class Car extends Model
        
         public function getImg() {
             return $this->img;
+        }
+
+        public function setGps($gps) {
+            $this->gps = $gps;
+            return $this;
+        }       
+       
+        public function getGps() {
+            return $this->gps;
+        }
+
+        public function setSunroof($sunroof) {
+            $this->sunroof = $sunroof;
+            return $this;
+        }       
+       
+        public function getSunroof() {
+            return $this->sunroof;
+        }
+        public function setFridge($fridge) {
+            $this->fridge = $fridge;
+            return $this;
+        }       
+       
+        public function getFridge() {
+            return $this->fridge;
+        }
+
+        public function setSport_line($sport_line) {
+            $this->sport_line = $sport_line;
+            return $this;
+        }       
+       
+        public function getSport_line() {
+            return $this->sport_line;
+        }
+        public function setLv($lv) {
+            $this->lv = $lv;
+            return $this;
+        }       
+       
+        public function getLv() {
+            return $this->lv;
+        }
+        public function setHeaded_seat($headed_seat) {
+            $this->headed_seat = $headed_seat;
+            return $this;
+        }       
+       
+        public function getHeaded_seat() {
+            return $this->headed_seat;
         }
 
 }
